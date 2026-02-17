@@ -24,7 +24,7 @@ body {
   text-align: center;
 }
 .login-card {
-  background: rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0.5);
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -52,7 +52,7 @@ h1 {
   font-size: 24px;
 }
 .subtitle {
-  color: #888;
+  color: #333;
   margin-top: 10px;
   font-size: 16px;
 }
@@ -62,7 +62,7 @@ h1 {
   width: fit-content;
   background-color: #00ba1f;
   font-weight: bold;
-  color: white;
+  color: rgb(255, 255, 255);
   font-size: 20px;
   padding: 15px 40px;
   border: none;
@@ -137,7 +137,7 @@ h1 {
 .progress-bar {
   width: 0%;
   height: 100%;
-  background: #4caf50; /* Warna hijau */
+  background: #00ba1f; /* Warna hijau */
   border-radius: 50px;
   transition: width 0.2s linear;
 }
@@ -154,7 +154,7 @@ h1 {
 .footer-text {
   margin-top: 30px;
   font-size: 14px;
-  color: #aaa;
+  color: #333;
 }
 .social-media {
   display: flex;
@@ -170,7 +170,7 @@ h1 {
 
 .social-media ion-icon {
   font-size: 24px;
-  color: #888;
+  color: #555;
   transition: all 0.3s ease;
 }
 
