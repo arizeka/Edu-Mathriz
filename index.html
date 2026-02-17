@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Edukasi Matematika</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+  <body>
+    <div class="container" id="page-home">
+      <div class="login-card">
+        <div class="icon-logo">
+          <ion-icon name="game-controller"></ion-icon>
+        </div>
+        <h1>Edu-Mathriz</h1>
+        <p class="subtitle">Game Edukasi Matematika Sekolah Dasar</p>
+        <button class="btn-mulai" id="startBtn">
+          <ion-icon name="play"></ion-icon> Mulai
+        </button>
+        <div id="loadingWrapper" class="loading-hidden">
+          <div class="progress-container">
+            <div id="progressBar" class="progress-bar"></div>
+          </div>
+        </div>
+        <p class="footer-text">Dibuat oleh Ariz Eka Pramudita</p>
+        <div class="social-media">
+          <a href="https://www.instagram.com/arizpramudita_37" target="_blank">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+
+          <a href="https://www.tiktok.com/@ariizzzz7" target="_blank">
+            <ion-icon name="logo-tiktok"></ion-icon>
+          </a>
+
+          <a href="https://www.youtube.com/@arizpramudita37" target="_blank">
+            <ion-icon name="logo-youtube"></ion-icon>
+          </a>
+
+          <a href="https://wa.me/6282230415375" target="_blank">
+            <ion-icon name="logo-whatsapp"></ion-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="container" id="page-menu" style="display: none">
+      <div class="login-card">
+        <div class="icon-logo">
+          <ion-icon name="apps-outline"></ion-icon>
+        </div>
+        <h1>Menu Utama</h1>
+        <p class="subtitle">Silahkan pilih mode:</p>
+
+        <div class="menu-options">
+          <button class="btn-mulai" id="btn-materi">
+            <ion-icon name="book-outline"></ion-icon> Belajar Materi
+          </button>
+
+          <button class="btn-mulai" id="btn-game">
+            <ion-icon name="game-controller-outline"></ion-icon> Permainan
+          </button>
+        </div>
+
+        <button id="btn-back">Kembali ke Beranda</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

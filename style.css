@@ -1,0 +1,260 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background: #62cff4;
+  background: linear-gradient(135deg, #62cff4 0%, #7c83f3 50%, #8e58c7 100%);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.container {
+  width: 100%;
+  max-width: 500px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.login-card {
+  background: rgb(255, 255, 255);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.icon-logo {
+  font-size: 60px;
+  color: #1a4fe2;
+  animation: floating 2s ease-in-out infinite;
+}
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+h1 {
+  color: #333;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 24px;
+}
+.subtitle {
+  color: #888;
+  margin-top: 10px;
+  font-size: 16px;
+}
+.btn-mulai {
+  display: flex;
+  margin: 20px auto 0 auto;
+  width: fit-content;
+  background-color: #00ba1f;
+  font-weight: bold;
+  color: white;
+  font-size: 20px;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn-mulai::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%; /* Mulai dari luar tombol sebelah kiri */
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: all 0.5s;
+}
+
+/* Kondisi saat Mouse Menempel (Hover) */
+.btn-mulai:hover {
+  background-color: #00cd22;
+  transform: scale(1.05); /* Tombol maju ke depan */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-mulai:hover::before {
+  left: 100%; /* Cahaya bergerak ke kanan saat hover */
+}
+
+/* Kondisi saat Mouse Keluar (Active/Default) */
+.btn-mulai:active {
+  transform: translateY(2px);
+}
+
+/* Menghilangkan loading saat awal */
+.loading-hidden {
+  display: none;
+  margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loadingWrapper {
+  width: 100%;
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Kotak luar bar */
+.progress-container {
+  width: 80%; /* Lebar batang loading */
+  background-color: #e0e0e0;
+  border-radius: 50px;
+  height: 10px;
+  overflow: hidden;
+}
+
+/* Isi batang yang berjalan */
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  background: #4caf50; /* Warna hijau */
+  border-radius: 50px;
+  transition: width 0.2s linear;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.footer-text {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #aaa;
+}
+.social-media {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.social-media a {
+  text-decoration: none;
+  display: flex;
+}
+
+.social-media ion-icon {
+  font-size: 24px;
+  color: #888;
+  transition: all 0.3s ease;
+}
+
+.social-media a:hover ion-icon[name="logo-instagram"] {
+  color: #e1306c;
+  transform: scale(1.1);
+}
+
+.social-media a:hover ion-icon[name="logo-tiktok"] {
+  color: #000;
+  transform: scale(1.1);
+}
+
+.social-media a:hover ion-icon[name="logo-youtube"] {
+  color: #ff0000;
+  transform: scale(1.1);
+}
+
+.social-media a:hover ion-icon[name="logo-whatsapp"] {
+  color: #25d366;
+  transform: scale(1.1);
+}
+
+/* Gaya khusus untuk tombol menu (Materi & Permainan) */
+.menu-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+/* Tombol Materi (Warna Ungu Soft) */
+#btn-materi {
+  background-color: #7c83f3;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Tombol Permainan (Warna Hijau - Tetap Konsisten) */
+#btn-game {
+  background-color: #00ba1f;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Efek Hover tambahan agar lebih interaktif */
+.btn-mulai ion-icon {
+  font-size: 20px;
+}
+
+/* Tombol Kembali (Back Button) */
+#btn-back {
+  margin-top: 25px;
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+#btn-back:hover {
+  color: #333;
+}
+
+/* Menangani transisi saat halaman muncul */
+[style*="display: block"] {
+  animation: fadeIn 0.6s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
