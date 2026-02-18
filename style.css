@@ -31,9 +31,14 @@ body {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 .icon-logo {
-  font-size: 60px;
-  color: #1a4fe2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   animation: floating 2s ease-in-out infinite;
+}
+.icon-logo img {
+  width: 60px;
+  height: auto;
 }
 @keyframes floating {
   0% {
@@ -215,7 +220,7 @@ h1 {
 
 .container-menu {
   width: 100%;
-  max-width: 800px; /* Diperlebar agar tombol tidak terlalu sempit */
+  max-width: 800px;
   padding: 20px;
   text-align: center;
   display: flex;
@@ -223,8 +228,11 @@ h1 {
   align-items: center;
 }
 .header-menu {
-  margin-bottom: 30px;
-  color: #333;
+  background: rgba(255, 255, 255, 0.5);
+  max-width: 800px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 /* Gaya khusus untuk tombol menu (Materi & Permainan) */
 .menu-options {
