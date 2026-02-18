@@ -14,7 +14,7 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.container {
+.container-home {
   width: 100%;
   max-width: 500px;
   padding: 30px;
@@ -25,6 +25,7 @@ body {
 }
 .login-card {
   background: rgba(255, 255, 255, 0.5);
+  max-width: 500px;
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -212,17 +213,30 @@ h1 {
   transform: scale(1.1);
 }
 
+.container-menu {
+  width: 100%;
+  max-width: 800px; /* Diperlebar agar tombol tidak terlalu sempit */
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header-menu {
+  margin-bottom: 30px;
+  color: #333;
+}
 /* Gaya khusus untuk tombol menu (Materi & Permainan) */
 .menu-options {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 15px;
   margin-top: 25px;
 }
 
 /* Tombol Materi (Warna Ungu Soft) */
 #btn-materi {
-  background-color: #7c83f3;
+  background-color: #5bb0e0;
   width: 100%;
   display: flex;
   align-items: center;
@@ -233,6 +247,15 @@ h1 {
 /* Tombol Permainan (Warna Hijau - Tetap Konsisten) */
 #btn-game {
   background-color: #00ba1f;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+#btn-quiz {
+  background-color: #8b3af5;
   width: 100%;
   display: flex;
   align-items: center;

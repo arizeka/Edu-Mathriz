@@ -19,7 +19,7 @@
     ></script>
   </head>
   <body>
-    <div class="container" id="page-home">
+    <div class="container-home" id="page-home">
       <div class="login-card">
         <div class="icon-logo">
           <ion-icon name="game-controller"></ion-icon>
@@ -54,23 +54,31 @@
         </div>
       </div>
     </div>
-    <div class="container" id="page-menu" style="display: none">
-      <h2>Pembelajaran Matematika-Kelas 5 Sekolah Dasar</h2>
-      <p class="subtitle">
-        Materi Penjumlahan dan Pengurangan Bilangan Pecahan dengan Penyebut Sama
-        dan Berbeda
-      </p>
-      <h1>Menu Utama</h1>
-      <p class="subtitle">Silahkan pilih mode:</p>
+    <div class="container-menu" id="page-menu" style="display: none">
+      <div class="header-menu">
+        <h2>Pembelajaran Matematika-Kelas 5 Sekolah Dasar</h2>
+        <p class="subtitle">
+          Materi Penjumlahan dan Pengurangan Bilangan Pecahan dengan Penyebut
+          Sama dan Berbeda
+        </p>
+      </div>
+      <div class="main-menu-content">
+        <h1>Menu Utama</h1>
+        <p class="subtitle">Silahkan pilih mode:</p>
 
-      <div class="menu-options">
-        <button class="btn-mulai" id="btn-materi">
-          <ion-icon name="book-outline"></ion-icon> Materi
-        </button>
+        <div class="menu-options">
+          <button class="btn-mulai btn-materi" id="btn-materi">
+            <ion-icon name="easel"></ion-icon> Materi
+          </button>
 
-        <button class="btn-mulai" id="btn-game">
-          <ion-icon name="game-controller-outline"></ion-icon> Permainan
-        </button>
+          <button class="btn-mulai btn-game" id="btn-game">
+            <ion-icon name="game-controller"></ion-icon> Permainan
+          </button>
+
+          <button class="btn-mulai btn-quiz" id="btn-materi">
+            <ion-icon name="trophy"></ion-icon> Quiz
+          </button>
+        </div>
       </div>
 
       <button id="btn-back">Kembali ke Beranda</button>
