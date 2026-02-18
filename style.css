@@ -236,11 +236,13 @@ h1 {
 
 /* Tombol Materi (Warna Ungu Soft) */
 #btn-materi {
-  background-color: #5bb0e0;
+  background-color: #35a6d3;
   width: 100%;
+  font-size: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   gap: 10px;
 }
 
@@ -248,18 +250,22 @@ h1 {
 #btn-game {
   background-color: #00ba1f;
   width: 100%;
+  font-size: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   gap: 10px;
 }
 
 #btn-quiz {
-  background-color: #8b3af5;
+  background-color: #6e0bf0;
   width: 100%;
+  font-size: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   gap: 10px;
 }
 
