@@ -84,6 +84,12 @@ h1 {
   gap: 8px;
   box-shadow: 0 3px 0 #2e7d32;
 }
+.btn-mulai img {
+  width: 20px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
 .btn-mulai::before {
   content: "";
   position: absolute;
