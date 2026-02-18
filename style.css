@@ -148,7 +148,7 @@ h1 {
   background-size: 200px 100%;
   background-repeat: no-repeat;
   border-radius: 50px;
-  transition: width 0.2s linear;
+  transition: width 0.2s ease-in;
   animation: shimmer 0.8s infinite;
 }
 
