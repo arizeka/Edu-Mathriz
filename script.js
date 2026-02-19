@@ -40,6 +40,47 @@ startBtn.addEventListener("click", function () {
 const modalSetting = document.getElementById("modal-setting");
 const modalPerson = document.getElementById("modal-person");
 
+// --- TAMBAHKAN VARIABEL BARU DI SINI ---
+const btnMateri = document.getElementById("btn-materi"); // Pastikan ID di HTML adalah "btn-materi"
+const materiContainer = document.getElementById("materi-container"); // ID container transparan tadi
+
+// ... (Logika Setting & Person kamu tetap sama)
+
+// ==========================================
+// --- LOGIKA MATERI (BAGIAN BARU) ---
+// ==========================================
+btnMateri.addEventListener("click", () => {
+  // Mengecek apakah container sedang sembunyi atau muncul
+  if (
+    materiContainer.style.display === "none" ||
+    materiContainer.style.display === ""
+  ) {
+    materiContainer.style.display = "block";
+    // Scroll otomatis ke container materi agar user tahu ada konten muncul di bawah
+    materiContainer.scrollIntoView({ behavior: "smooth" });
+  } else {
+    materiContainer.style.display = "none";
+  }
+});
+
+// Tambahkan ini di dalam window click listener agar materi tertutup saat klik luar (opsional)
+window.addEventListener("click", (event) => {
+  if (event.target == modalSetting) {
+    modalSetting.style.display = "none";
+  }
+  if (event.target == modalPerson) {
+    modalPerson.style.display = "none";
+  }
+});
+
+// --- UPDATE LOGIKA KEMBALI ---
+// Pastikan saat klik "Kembali", container materi juga ikut sembunyi
+btnBack.addEventListener("click", function () {
+  pageMenu.style.display = "none";
+  pageHome.style.display = "flex";
+  materiContainer.style.display = "none"; // Tambahkan baris ini
+});
+
 const btnSetting = document.getElementById("btn-setting");
 const btnPerson = document.getElementById("btn-person");
 
@@ -84,6 +125,8 @@ function resetHome() {
   startBtn.style.display = "flex"; // Munculkan kembali tombol mulai
   loadingWrapper.style.display = "none"; // Sembunyikan loading
   progressBar.style.width = "0%"; // Reset panjang bar ke 0
+  const materiContainer = document.getElementById("materi-container");
+  if (materiContainer) materiContainer.style.display = "none";
 }
 
 // LOGIKA 2: Klik "Kembali" -> Pindah ke Beranda
