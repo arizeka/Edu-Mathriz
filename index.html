@@ -87,6 +87,45 @@
         </button>
       </div>
 
+      <div id="modal-setting" class="modal-overlay">
+        <div class="modal-content">
+          <span class="close-btn" id="close-setting">&times;</span>
+          <h2>Pengaturan</h2>
+          <hr />
+          <div class="setting-item">
+            <p>Volume Musik</p>
+            <input type="range" min="0" max="100" value="50" />
+          </div>
+          <div class="setting-item">
+            <p>Efek Suara</p>
+            <label class="switch">
+              <input type="checkbox" checked />
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div id="modal-person" class="modal-overlay">
+        <div class="modal-content">
+          <span class="close-btn" id="close-person">&times;</span>
+          <h2>Profil Pembuat</h2>
+          <hr />
+          <div class="profile-body">
+            <img
+              src="img/person.png"
+              alt="Foto Profil"
+              style="width: 80px; margin-bottom: 10px"
+            />
+            <p>Halo! Saya adalah pengembang game edukasi ini.</p>
+            <p>
+              Game ini dibuat untuk membantu siswa kelas 5 SD memahami materi
+              pecahan dengan cara yang lebih menyenangkan dan interaktif.
+            </p>
+          </div>
+        </div>
+      </div>
+
       <button id="btn-back">Kembali ke Beranda</button>
     </div>
     <script src="script.js"></script>

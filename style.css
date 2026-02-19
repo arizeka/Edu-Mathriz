@@ -351,6 +351,75 @@ body {
 .btn-person:active {
   transform: translateY(2px);
 }
+
+/* Container Utama Modal (Latar Gelap) */
+.modal-overlay {
+  display: none; /* Sembunyi secara default */
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Efek gelap di belakang */
+  backdrop-filter: blur(5px); /* Efek blur estetik */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Kotak Konten di Tengah */
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation: popIn 0.3s ease-out;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Tombol Close (X) */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #888;
+}
+
+.close-btn:hover {
+  color: #ff0000;
+}
+
+/* Styling isi setting */
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.profile-body p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #444;
+}
+
 /* Tombol Kembali (Back Button) */
 #btn-back {
   margin-top: 25px;

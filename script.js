@@ -36,6 +36,49 @@ startBtn.addEventListener("click", function () {
   }, 30); // Kecepatan loading (total sekitar 3 detik)
 });
 
+// Ambil elemen Modal dan Tombol
+const modalSetting = document.getElementById("modal-setting");
+const modalPerson = document.getElementById("modal-person");
+
+const btnSetting = document.getElementById("btn-setting");
+const btnPerson = document.getElementById("btn-person");
+
+const closeSetting = document.getElementById("close-setting");
+const closePerson = document.getElementById("close-person");
+
+// --- LOGIKA SETTING ---
+// Buka modal setting
+btnSetting.addEventListener("click", () => {
+  modalSetting.style.display = "flex";
+});
+
+// Tutup modal setting saat klik (X)
+closeSetting.addEventListener("click", () => {
+  modalSetting.style.display = "none";
+});
+
+// --- LOGIKA PERSON ---
+// Buka modal person
+btnPerson.addEventListener("click", () => {
+  modalPerson.style.display = "flex";
+});
+
+// Tutup modal person saat klik (X)
+closePerson.addEventListener("click", () => {
+  modalPerson.style.display = "none";
+});
+
+// --- LOGIKA TAMBAHAN ---
+// Tutup modal jika user klik di luar area kotak putih
+window.addEventListener("click", (event) => {
+  if (event.target == modalSetting) {
+    modalSetting.style.display = "none";
+  }
+  if (event.target == modalPerson) {
+    modalPerson.style.display = "none";
+  }
+});
+
 // Fungsi untuk mengembalikan tampilan home ke semula (saat tombol kembali diklik)
 function resetHome() {
   startBtn.style.display = "flex"; // Munculkan kembali tombol mulai
