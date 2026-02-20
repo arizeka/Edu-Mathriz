@@ -515,6 +515,50 @@ body {
   overflow-x: hidden;
 }
 
+.header-utama {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Memanjang sesuai container besar */
+  background: rgba(255, 255, 255, 0.2); /* Lebih terang dikit */
+  padding: 15px 15px;
+  border-radius: 15px;
+  margin-bottom: 15px; /* Jarak ke konten di bawahnya */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-sizing: border-box; /* Agar padding tidak merusak lebar */
+}
+
+.img-target {
+  width: 30px; /* Ukuran gambar/icon */
+  height: auto;
+  margin-right: 15px;
+}
+
+.img-bilangan {
+  width: 30px; /* Ukuran gambar/icon */
+  height: auto;
+  margin-right: 15px;
+}
+
+.img-operasi {
+  width: 30px; /* Ukuran gambar/icon */
+  height: auto;
+  margin-right: 15px;
+}
+
+.text-header h2 {
+  color: white;
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.text-header p {
+  margin: 5px 0 0 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
 /* Styling isi materi agar memanjang ke bawah */
 .materi-item {
   color: white;
@@ -546,31 +590,6 @@ body {
     transparent
   );
   margin: 20px 0;
-}
-
-/* --- VERSI HP (Responsive) --- */
-@media screen and (max-width: 400px) {
-  .materi-item {
-    margin-bottom: 20px;
-    padding: 0 10px;
-  }
-
-  .materi-item h3 {
-    font-size: 1rem; /* Ukuran judul lebih kecil sedikit di HP */
-    width: 90%; /* Agar box kuning tidak terlalu lebar tapi tetap proporsional */
-    box-sizing: border-box;
-  }
-
-  .materi-item p {
-    font-size: 0.9rem; /* Ukuran teks isi sedikit diperkecil */
-    text-align: justify; /* Opsional: supaya rapi di kiri-kanan saat di HP */
-    text-align-last: center; /* Tetap menjaga baris terakhir di tengah */
-  }
-
-  .pembatas {
-    margin: 15px auto;
-    width: 60%; /* Pembatas lebih pendek di HP agar terlihat manis */
-  }
 }
 
 /* Mempercantik Scrollbar */
