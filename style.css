@@ -500,8 +500,7 @@ body {
 .content-materi-scroll {
   display: none; /* Awalnya sembunyi */
   width: 90%;
-  max-width: 600px;
-  max-height: 400px; /* Batas tinggi kotak agar bisa di-scroll */
+  max-height: 450px; /* Batas tinggi kotak agar bisa di-scroll */
   margin: 20px auto;
   padding: 20px;
 
@@ -531,6 +530,12 @@ body {
   display: inline-block;
 }
 
+.materi-item p {
+  color: white;
+  margin-top: 10px;
+  text-align: center;
+}
+
 .pembatas {
   border: 0;
   height: 1px;
@@ -554,7 +559,7 @@ body {
 
 /* Tombol Kembali (Back Button) */
 #btn-back {
-  margin-top: 25px;
+  margin-top: 15px;
   background: none;
   border: none;
   color: #888;
