@@ -63,6 +63,26 @@ btnMateri.addEventListener("click", () => {
   }
 });
 
+// Ambil elemen konten materi yang memiliki scroll
+const scrollContainer = document.querySelector(".content-materi-scroll");
+let isScrolling;
+
+// Pastikan elemen ada sebelum menjalankan fungsi
+if (scrollContainer) {
+  scrollContainer.addEventListener("scroll", () => {
+    // 1. Tambahkan class 'scrolling' agar scrollbar muncul (diatur di CSS)
+    scrollContainer.classList.add("scrolling");
+
+    // 2. Hapus timer sebelumnya agar tidak bentrok
+    window.clearTimeout(isScrolling);
+
+    // 3. Set timer: scrollbar hilang setelah 1 detik (1000ms) tidak ada gerakan
+    isScrolling = setTimeout(() => {
+      scrollContainer.classList.remove("scrolling");
+    }, 1000);
+  });
+}
+
 // Tambahkan ini di dalam window click listener agar materi tertutup saat klik luar (opsional)
 window.addEventListener("click", (event) => {
   if (event.target == modalSetting) {

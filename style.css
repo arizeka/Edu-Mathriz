@@ -500,7 +500,7 @@ body {
 .content-materi-scroll {
   display: none; /* Awalnya sembunyi */
   width: 90%;
-  max-height: 450px; /* Batas tinggi kotak agar bisa di-scroll */
+  max-height: 60vh; /* Batas tinggi kotak agar bisa di-scroll */
   margin: 20px auto;
   padding: 20px;
 
@@ -592,15 +592,152 @@ body {
   margin: 20px 0;
 }
 
-/* Mempercantik Scrollbar */
-.content-materi-scroll::-webkit-scrollbar {
-  width: 8px;
+/* Styling Pecahan a/b */
+.fraction {
+  display: inline-flex;
+  flex-direction: column;
+  vertical-align: middle;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 0 10px;
+  color: white;
 }
-.content-materi-scroll::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.5);
+
+.numerator {
+  border-bottom: 2px solid white;
+  padding: 0 5px;
+}
+
+.denominator {
+  padding: 0 5px;
+}
+
+/* Container Visualisasi */
+.fraction-box {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 15px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.visual-box {
+  width: 100px;
+  height: 40px;
+  border: 2px solid white;
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  margin-left: 15px;
+}
+
+.box-fill {
+  height: 100%;
+  background: #ffeb3b; /* Warna kuning untuk bagian yang diisi */
+}
+
+.box-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: white;
+}
+
+/* Styling Input Interaktif */
+.interactive-box {
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
 
+.input-frac {
+  width: 40px;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  margin: 5px;
+}
+
+.line-input {
+  width: 40px;
+  height: 2px;
+  background: white;
+  margin: 0 auto;
+}
+
+.visual-box-dynamic {
+  width: 200px;
+  height: 50px;
+  background: white;
+  margin: 15px auto;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Operasi Layout */
+.fraction-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.oper {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.step-box {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 8px;
+  text-align: left;
+  display: inline-block;
+}
+
+/* Scrollllllllll */
+.content-materi-scroll {
+  overflow-y: auto;
+  border-radius: 20px;
+  /* Mencegah konten bergeser saat scrollbar muncul/hilang */
+  scrollbar-gutter: stable;
+}
+
+/* Sembunyikan Panah */
+.content-materi-scroll::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Ukuran Scrollbar */
+.content-materi-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Warna Track (Transparan agar rapi) */
+.content-materi-scroll::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 15px; /* KUNCI: Agar tidak keluar dari lengkungan pojok */
+}
+
+/* 1. Kondisi Awal: Scrollbar Transparan (Hilang) */
+.content-materi-scroll::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+  transition: background-color 0.4s ease; /* Efek halus saat menghilang */
+}
+
+/* 2. Kondisi Saat Di-scroll: Class 'scrolling' ditambah oleh JS */
+.content-materi-scroll.scrolling::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5); /* Munculkan warna */
+}
 /* Tombol Kembali (Back Button) */
 #btn-back {
   margin-top: 15px;

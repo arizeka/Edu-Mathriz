@@ -129,66 +129,144 @@
         </div>
 
         <div class="materi-item">
-          <h3>Bilangan Pecahan</h3>
+          <h3>Apa itu Bilangan Pecahan?</h3>
           <p>
             Bilangan pecahan adalah bilangan yang menyatakan bagian dari suatu
-            keseluruhan yang dibagi menjadi beberapa bagian sama besar.
+            keseluruhan. Jika sebuah benda utuh dibagi menjadi beberapa bagian
+            yang <b>sama besar</b>, maka setiap bagian tersebut adalah pecahan.
           </p>
         </div>
 
-        <hr class="pembatas" />
-
         <div class="materi-item">
           <h3>Bentuk Bilangan Pecahan</h3>
-          <p>Dibaca a per b</p>
-          <p>a adalah pembilang</p>
-          <p>b adalah penyebut</p>
+          <div class="fraction-box">
+            <div class="fraction">
+              <span class="numerator">a</span>
+              <span class="denominator">b</span>
+            </div>
+            <div class="fraction-desc">
+              <p><b>a</b> = Pembilang (banyaknya bagian yang diambil)</p>
+              <p><b>b</b> = Penyebut (jumlah seluruh bagian yang sama besar)</p>
+            </div>
+          </div>
+          <p><i>Keterangan: b tidak boleh sama dengan 0.</i></p>
         </div>
-
-        <hr class="pembatas" />
 
         <div class="materi-item">
           <h3>Contoh Bilangan Pecahan</h3>
-          <p>Dibaca a per b</p>
-          <p>a adalah pembilang</p>
-          <p>b adalah penyebut</p>
+          <div class="example-container">
+            <div class="fraction-display">
+              <div class="fraction">
+                <span class="numerator">1</span>
+                <span class="denominator">2</span>
+              </div>
+              <div class="visual-box">
+                <div class="box-fill" style="width: 50%"></div>
+                <div class="box-line"></div>
+              </div>
+            </div>
+            <p>Satu dari dua bagian yang sama besar.</p>
+
+            <div class="interactive-box">
+              <input
+                type="number"
+                id="numInput"
+                placeholder="a"
+                class="input-frac"
+              />
+              <div class="line-input"></div>
+              <input
+                type="number"
+                id="denInput"
+                placeholder="b"
+                class="input-frac"
+              />
+              <div id="dynamic-box" class="visual-box-dynamic">
+                <p style="font-size: 12px; color: #333">Visualisasi</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="header-utama">
           <img src="img/operasi.png" alt="Icon" class="img-operasi" />
           <div class="text-header">
-            <h2>Operasi Penjumlahan dan Pengurangan Bilangan Pecahan</h2>
+            <h2>Operasi Penjumlahan & Pengurangan</h2>
           </div>
         </div>
 
-        <div class="materi-item">
-          <h3>Operasi Penjumlahan dengan Penyebut Sama</h3>
-          <p>Dibaca a per b</p>
-          <p>a adalah pembilang</p>
-          <p>b adalah penyebut</p>
+        <div class="materi-item box-oper">
+          <h3>Penjumlahan (Penyebut Sama)</h3>
+          <div class="calc-container">
+            <div class="fraction-row">
+              <div class="fraction">
+                <span class="numerator">1</span
+                ><span class="denominator">4</span>
+              </div>
+              <span class="oper">+</span>
+              <div class="fraction">
+                <span class="numerator">2</span
+                ><span class="denominator">4</span>
+              </div>
+              <span class="oper">=</span>
+              <div class="fraction">
+                <span class="numerator">3</span
+                ><span class="denominator">4</span>
+              </div>
+            </div>
+            <div class="visual-row">+ =</div>
+            <p class="desc-text">
+              Cukup jumlahkan pembilangnya saja, penyebutnya tetap sama.
+            </p>
+          </div>
         </div>
 
-        <div class="materi-item">
-          <h3>Operasi Pengurangan dengan Penyebut Sama</h3>
-          <p>Dibaca a per b</p>
-          <p>a adalah pembilang</p>
-          <p>b adalah penyebut</p>
+        <div class="materi-item box-oper">
+          <h3>Pengurangan (Penyebut Sama)</h3>
+          <div class="calc-container">
+            <div class="fraction-row">
+              <div class="fraction">
+                <span class="numerator">3</span
+                ><span class="denominator">5</span>
+              </div>
+              <span class="oper">-</span>
+              <div class="fraction">
+                <span class="numerator">1</span
+                ><span class="denominator">5</span>
+              </div>
+              <span class="oper">=</span>
+              <div class="fraction">
+                <span class="numerator">2</span
+                ><span class="denominator">5</span>
+              </div>
+            </div>
+            <p class="desc-text">
+              Kurangkan pembilangnya, penyebutnya tidak berubah.
+            </p>
+          </div>
         </div>
 
-        <hr class="pembatas" />
-
-        <div class="materi-item">
-          <h3>Operasi Penjumlahan dengan Penyebut Berbeda</h3>
-          <p>Dibaca a per b</p>
-          <p>a adalah pembilang</p>
-          <p>b adalah penyebut</p>
+        <div class="materi-item box-oper">
+          <h3>Penjumlahan (Penyebut Berbeda)</h3>
+          <div class="calc-container">
+            <p>Contoh: $\frac{1}{2} + \frac{1}{3}$</p>
+            <div class="step-box">
+              1. Samakan penyebut dengan KPK (KPK 2 dan 3 adalah 6)<br />
+              2. $\frac{3}{6} + \frac{2}{6} = \frac{5}{6}$
+            </div>
+            <div class="visual-row"></div>
+          </div>
         </div>
 
-        <div class="materi-item">
-          <h3>Operasi Pengurangan dengan Penyebut Berbeda</h3>
-          <p>Dibaca a per b</p>
-          <p>a adalah pembilang</p>
-          <p>b adalah penyebut</p>
+        <div class="materi-item box-oper">
+          <h3>Pengurangan (Penyebut Berbeda)</h3>
+          <div class="calc-container">
+            <p>Contoh: $\frac{3}{4} - \frac{1}{2}$</p>
+            <div class="step-box">
+              Samakan penyebut ke 4:<br />
+              $\frac{3}{4} - \frac{2}{4} = \frac{1}{4}$
+            </div>
+          </div>
         </div>
       </div>
 
