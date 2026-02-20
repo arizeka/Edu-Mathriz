@@ -548,6 +548,31 @@ body {
   margin: 20px 0;
 }
 
+/* --- VERSI HP (Responsive) --- */
+@media screen and (max-width: 600px) {
+  .materi-item {
+    margin-bottom: 20px;
+    padding: 0 10px;
+  }
+
+  .materi-item h3 {
+    font-size: 1rem; /* Ukuran judul lebih kecil sedikit di HP */
+    width: 90%; /* Agar box kuning tidak terlalu lebar tapi tetap proporsional */
+    box-sizing: border-box;
+  }
+
+  .materi-item p {
+    font-size: 0.9rem; /* Ukuran teks isi sedikit diperkecil */
+    text-align: justify; /* Opsional: supaya rapi di kiri-kanan saat di HP */
+    text-align-last: center; /* Tetap menjaga baris terakhir di tengah */
+  }
+
+  .pembatas {
+    margin: 15px auto;
+    width: 60%; /* Pembatas lebih pendek di HP agar terlihat manis */
+  }
+}
+
 /* Mempercantik Scrollbar */
 .content-materi-scroll::-webkit-scrollbar {
   width: 8px;
