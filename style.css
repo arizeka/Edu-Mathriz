@@ -549,7 +549,7 @@ body {
 }
 
 /* --- VERSI HP (Responsive) --- */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 400px) {
   .materi-item {
     margin-bottom: 20px;
     padding: 0 10px;
