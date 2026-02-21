@@ -50,16 +50,17 @@ const materiContainer = document.getElementById("materi-container"); // ID conta
 // --- LOGIKA MATERI (BAGIAN BARU) ---
 // ==========================================
 btnMateri.addEventListener("click", () => {
-  // Mengecek apakah container sedang sembunyi atau muncul
-  if (
+  // 1. Cek status sebelum disembunyikan semua
+  const isHidden =
     materiContainer.style.display === "none" ||
-    materiContainer.style.display === ""
-  ) {
+    materiContainer.style.display === "";
+  // 2. Sembunyikan SEMUA container terlebih dahulu agar tidak tumpang tindih
+  hideAllContainers();
+  // Mengecek apakah container sedang sembunyi atau muncul
+  if (isHidden) {
     materiContainer.style.display = "block";
     // Scroll otomatis ke container materi agar user tahu ada konten muncul di bawah
     materiContainer.scrollIntoView({ behavior: "smooth" });
-  } else {
-    materiContainer.style.display = "none";
   }
 });
 
@@ -106,6 +107,108 @@ const btnPerson = document.getElementById("btn-person");
 
 const closeSetting = document.getElementById("close-setting");
 const closePerson = document.getElementById("close-person");
+
+// VARIABEL DOM
+const btnPermainan = document.getElementById("btn-game"); // Pastikan ID ini ada di HTML Anda
+const btnQuiz = document.getElementById("btn-quiz"); // Pastikan ID ini ada di HTML Anda
+const gameContainer = document.getElementById("game-container");
+const quizContainer = document.getElementById("quiz-container");
+
+// Toggling Container (Seperti Materi)
+btnPermainan.addEventListener("click", () => {
+  const isHidden =
+    gameContainer.style.display === "none" ||
+    gameContainer.style.display === "";
+  hideAllContainers();
+
+  if (isHidden) {
+    gameContainer.style.display = "block";
+  }
+});
+
+btnQuiz.addEventListener("click", () => {
+  const isHidden =
+    quizContainer.style.display === "none" ||
+    quizContainer.style.display === "";
+  hideAllContainers();
+
+  if (isHidden) {
+    quizContainer.style.display = "block";
+  }
+});
+
+function hideAllContainers() {
+  materiContainer.style.display = "none";
+  gameContainer.style.display = "none";
+  quizContainer.style.display = "none";
+}
+
+// --- LOGIKA GAME ---
+function gameToSelection() {
+  document.getElementById("game-guide").style.display = "none";
+  document.getElementById("game-selection").style.display = "block";
+}
+
+function startCountdown() {
+  document.getElementById("game-selection").style.display = "none";
+  document.getElementById("game-arena").style.display = "block";
+  let count = 3;
+  const cdDiv = document.getElementById("countdown-display");
+
+  const interval = setInterval(() => {
+    if (count > 0) {
+      cdDiv.innerText = count;
+    } else if (count === 0) {
+      cdDiv.innerText = "MULAI!";
+    } else {
+      clearInterval(interval);
+      cdDiv.style.display = "none";
+      renderGameArena(); // Panggil fungsi pengerjaan soal game
+    }
+    count--;
+  }, 1000);
+}
+
+// --- LOGIKA QUIZ ---
+let currentQuestionIndex = 0;
+const quizQuestions = [
+  { q: "1/4 + 2/4 = ...", a: ["3/4", "1/4", "3/8", "1/2"], correct: 0 },
+  // Tambahkan 10 soal di sini secara acak
+];
+
+function quizToIdentity() {
+  document.getElementById("quiz-guide").style.display = "none";
+  document.getElementById("quiz-identity").style.display = "block";
+}
+
+function startQuiz() {
+  const name = document.getElementById("student-name").value;
+  if (!name) return alert("Isi nama dulu ya!");
+
+  document.getElementById("quiz-identity").style.display = "none";
+  document.getElementById("quiz-play").style.display = "block";
+  showQuestion(0);
+  startQuizTimer();
+}
+
+function showQuestion(index) {
+  const qContainer = document.getElementById("question-container");
+  const q = quizQuestions[index];
+  qContainer.innerHTML = `
+        <p>Soal ${index + 1}:</p>
+        <h4>${q.q}</h4>
+        <div class="options">
+            ${q.a.map((opt, i) => `<button onclick="selectAnswer(${i})">${opt}</button>`).join("")}
+        </div>
+    `;
+}
+
+// Update fungsi btnBack untuk menyembunyikan semuanya
+btnBack.addEventListener("click", function () {
+  pageMenu.style.display = "none";
+  pageHome.style.display = "flex";
+  hideAllContainers();
+});
 
 // --- LOGIKA SETTING ---
 // Buka modal setting

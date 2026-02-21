@@ -506,9 +506,7 @@ body {
   padding: 20px;
 
   /* Efek Transparan Glassmorphism */
-  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(8px);
-  border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
 
   /* Kunci Scroll Vertikal */
@@ -873,6 +871,163 @@ body {
 /* 2. Kondisi Saat Di-scroll: Class 'scrolling' ditambah oleh JS */
 .content-materi-scroll.scrolling::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.5); /* Munculkan warna */
+}
+
+/* Container Utama Glassmorphism */
+.glass-container {
+  display: none;
+  width: 90%;
+  height: clamp(300px, 60vh, 800px);
+  margin: 20px auto;
+  padding: 20px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.content-step {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Konten di tengah secara vertikal */
+  align-items: center;
+  gap: 20px;
+  height: 100%;
+}
+
+/* Styling List Cara Bermain/Mengerjakan */
+.content-step ol {
+  text-align: left;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 20px 20px 20px 40px;
+  border-radius: 15px;
+  line-height: 1.6;
+}
+
+/* Row & Grid Buttons */
+.row-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 10px 0;
+}
+
+.grid-2x2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Button Styling Umum */
+.opt-btn,
+.char-btn,
+.cat-btn,
+.lvl-btn,
+.btn-next,
+.btn-start-game {
+  padding: 12px 25px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: white;
+  color: #333;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.opt-btn:hover,
+.cat-btn:hover,
+.lvl-btn:hover {
+  transform: translateY(-3px);
+  background: #ffd700; /* Warna Emas saat hover */
+}
+
+/* Khusus Tombol Lanjut/Mulai */
+.btn-next,
+.btn-start-game {
+  background: #2ecc71;
+  color: white;
+  width: 200px;
+  margin-top: 20px;
+}
+
+/* Styling Quiz */
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.opt-btn.selected {
+  background: #3498db !important;
+  color: white;
+}
+
+/* Styling Game Arena */
+#countdown-display {
+  font-size: 120px;
+  font-weight: 900;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  color: #ffd700;
+}
+
+#timer-display {
+  font-size: 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 5px 20px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+
+/* Kalkulator Game */
+.calc-container {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  width: 100%;
+}
+
+.kalkulator {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 15px;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  width: 220px;
+}
+
+.kalkulator button {
+  height: 50px;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  border: none;
+  background: white;
+  cursor: pointer;
+}
+
+.kalkulator button:active {
+  transform: scale(0.9);
+}
+
+/* Identitas Input */
+#quiz-identity input {
+  padding: 15px;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.9);
+  width: 300px;
+  font-size: 1rem;
+  text-align: center;
 }
 /* Tombol Kembali (Back Button) */
 #btn-back {
