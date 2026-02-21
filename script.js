@@ -84,6 +84,39 @@ if (scrollContainer) {
   });
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  // Ambil semua container dengan class .fraction-box.a
+  const fractionBoxes = document.querySelectorAll(".fraction-box.a");
+
+  const observerOptions = {
+    root: null,
+    threshold: 0.3, // Chat mulai muncul saat 30% box terlihat
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const bubbles = entry.target.querySelectorAll(".bubble");
+
+        bubbles.forEach((bubble, index) => {
+          // Muncul satu per satu dengan jeda 1.8 detik
+          setTimeout(() => {
+            bubble.classList.add("show");
+          }, index * 1800);
+        });
+
+        // Setelah animasi jalan, stop memantau box ini agar tidak reset
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Jalankan pengawasan pada setiap fraction-box.a
+  fractionBoxes.forEach((box) => {
+    observer.observe(box);
+  });
+});
+
 // Tambahkan ini di dalam window click listener agar materi tertutup saat klik luar (opsional)
 window.addEventListener("click", (event) => {
   if (event.target == modalSetting) {

@@ -277,7 +277,6 @@ body {
   transition:
     transform 0.2s ease,
     filter 0.2s ease;
-  /* Menghapus margin auto agar tidak berantakan di dalam flex */
   margin: 0;
 }
 
@@ -500,15 +499,9 @@ body {
 .content-materi-scroll {
   display: none; /* Awalnya sembunyi */
   width: 90%;
-  height: clamp(300px, 60vh, 800px);
-  overflow-y: auto;
-  margin: 20px auto;
+  height: clamp(300px, 65vh, 800px);
+  margin: 0;
   padding: 20px;
-
-  /* Efek Transparan Glassmorphism */
-  backdrop-filter: blur(8px);
-  border-radius: 20px;
-
   /* Kunci Scroll Vertikal */
   overflow-y: auto;
   overflow-x: hidden;
@@ -676,6 +669,72 @@ body {
   align-items: center;
   gap: 20px;
   margin-bottom: 20px;
+}
+
+/* Chat Tikus dan Keju */
+/* Container Utama */
+.fraction-box.a {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column; /* Gambar di atas, chat di bawah */
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Styling Gambar Sejajar */
+.header-animation {
+  display: flex;
+  align-items: flex-end; /* Supaya menapak di dasar yang sama */
+  gap: 15px;
+}
+
+.img-tikus {
+  width: 60px; /* Ukuran tikus lebih kecil */
+  height: auto;
+}
+
+.img-keju {
+  width: 100px; /* Ukuran keju lebih besar */
+  height: auto;
+}
+
+/* Container Chat */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Bubble Chat */
+.bubble {
+  background: white;
+  color: #333;
+  padding: 10px 15px;
+  border-radius: 15px 15px 15px 0; /* Gaya chat bubble */
+  font-size: 14px;
+  line-height: 1.4;
+  max-width: 90%;
+  align-self: flex-start;
+  text-align: left;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+/* Class untuk memicu animasi via JS */
+.bubble.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Container Utama agar Sejajar */
