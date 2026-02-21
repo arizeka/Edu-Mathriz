@@ -191,38 +191,60 @@
           <p><i>Keterangan: b tidak boleh sama dengan 0.</i></p>
         </div>
 
+        <hr class="pembatas" />
+
         <div class="materi-item">
           <h3>Contoh Bilangan Pecahan</h3>
-          <div class="example-container">
-            <div class="fraction-display">
-              <div class="fraction-a">
-                <span class="numerator">1</span>
-                <span class="denominator">2</span>
+          <div class="flex-wrapper">
+            <div class="example-container">
+              <div class="fraction-display">
+                <div class="visual-box">
+                  <div class="box-fill" style="width: 50%"></div>
+                  <div class="box-line"></div>
+                </div>
+                <div class="fraction-a">
+                  <span class="numerator">1</span>
+                  <span class="denominator">2</span>
+                </div>
               </div>
-              <div class="visual-box">
-                <div class="box-fill" style="width: 50%"></div>
-                <div class="box-line"></div>
-              </div>
+              <p>Satu dari dua bagian yang sama besar.</p>
             </div>
-            <p>Satu dari dua bagian yang sama besar.</p>
 
-            <div class="interactive-box">
-              <input
-                type="number"
-                id="numInput"
-                placeholder="a"
-                class="input-frac"
-              />
-              <div class="line-input"></div>
-              <input
-                type="number"
-                id="denInput"
-                placeholder="b"
-                class="input-frac"
-              />
-              <div id="dynamic-box" class="visual-box-dynamic">
-                <p style="font-size: 12px; color: #333">Visualisasi</p>
+            <div class="example-container">
+              <div class="fraction-display">
+                <div class="visual-box box-grid-6">
+                  <div class="box-fill" style="width: 50%"></div>
+                  <div class="grid-line"></div>
+                  <div class="grid-line"></div>
+                  <div class="grid-line"></div>
+                  <div class="grid-line"></div>
+                  <div class="grid-line"></div>
+                </div>
+                <div class="fraction-a">
+                  <span class="numerator">3</span>
+                  <span class="denominator">6</span>
+                </div>
               </div>
+              <p>Tiga dari enam bagian yang sama besar.</p>
+            </div>
+          </div>
+
+          <div class="interactive-box">
+            <input
+              type="number"
+              id="numInput"
+              placeholder="a"
+              class="input-frac"
+            />
+            <div class="line-input"></div>
+            <input
+              type="number"
+              id="denInput"
+              placeholder="b"
+              class="input-frac"
+            />
+            <div id="dynamic-box" class="visual-box-dynamic">
+              <p style="font-size: 12px; color: #333">Visualisasi</p>
             </div>
           </div>
         </div>
@@ -253,12 +275,13 @@
                 ><span class="denominator">4</span>
               </div>
             </div>
-            <div class="visual-row">+ =</div>
             <p class="desc-text">
               Cukup jumlahkan pembilangnya saja, penyebutnya tetap sama.
             </p>
           </div>
         </div>
+
+        <hr class="pembatas" />
 
         <div class="materi-item box-oper">
           <h3>Pengurangan (Penyebut Sama)</h3>

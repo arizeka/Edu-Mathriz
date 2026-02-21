@@ -500,7 +500,8 @@ body {
 .content-materi-scroll {
   display: none; /* Awalnya sembunyi */
   width: 90%;
-  max-height: 60vh; /* Batas tinggi kotak agar bisa di-scroll */
+  height: clamp(300px, 60vh, 800px);
+  overflow-y: auto;
   margin: 20px auto;
   padding: 20px;
 
@@ -520,30 +521,49 @@ body {
   align-items: center;
   justify-content: center;
   width: 100%; /* Memanjang sesuai container besar */
-  background: rgba(255, 255, 255, 0.2); /* Lebih terang dikit */
+  background: #f0da18;
   padding: 15px 15px;
   border-radius: 15px;
   margin-bottom: 15px; /* Jarak ke konten di bawahnya */
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-sizing: border-box; /* Agar padding tidak merusak lebar */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+/* Efek Cahaya Menyapu (Shimmer) */
+.header-utama::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transform: skewX(-25deg);
+  animation: shine 4s infinite;
 }
 
-.img-target {
-  width: 30px; /* Ukuran gambar/icon */
-  height: auto;
-  margin-right: 15px;
+@keyframes shine {
+  100% {
+    left: 200%;
+  }
 }
 
-.img-bilangan {
-  width: 30px; /* Ukuran gambar/icon */
-  height: auto;
-  margin-right: 15px;
-}
-
+.img-target,
+.img-bilangan,
 .img-operasi {
-  width: 30px; /* Ukuran gambar/icon */
+  width: 30px;
   height: auto;
   margin-right: 15px;
+  /* Tambahkan ini */
+  display: inline-block;
+  animation: bounce 2s ease-in-out infinite;
 }
 
 .text-header h2 {
@@ -551,6 +571,18 @@ body {
   margin: 0;
   font-size: 20px;
   letter-spacing: 1px;
+  /* Tambahkan ini */
+  display: inline-block;
+  animation: bounce 2s ease-in-out infinite;
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(-2px); /* Mulai di posisi atas */
+  }
+  50% {
+    transform: translateY(2px); /* Bergerak ke posisi bawah */
+  }
 }
 
 .text-header p {
@@ -567,8 +599,7 @@ body {
 }
 
 .materi-item h3 {
-  background: #ffeb3b;
-  color: #333;
+  color: white;
   padding: 10px;
   border-radius: 10px;
   display: inline-block;
@@ -611,7 +642,7 @@ body {
   vertical-align: middle;
   align-items: center;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin: 0 10px;
   color: white;
   margin-top: 20px;
@@ -621,8 +652,9 @@ body {
   display: inline-flex;
   flex-direction: column;
   vertical-align: middle;
-  align-items: center;
-  font-size: 1.2rem;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 1rem;
   margin: 0 10px;
   color: white;
 }
@@ -639,6 +671,7 @@ body {
 /* Container Visualisasi */
 .fraction-box {
   background: rgba(255, 255, 255, 0.2);
+  color: white;
   padding: 15px;
   border-radius: 10px;
   display: inline-flex;
@@ -647,28 +680,95 @@ body {
   margin-bottom: 20px;
 }
 
+/* Container Utama agar Sejajar */
+.flex-wrapper {
+  display: flex;
+  gap: 20px; /* Jarak antar kotak */
+  flex-wrap: wrap; /* Agar responsif jika layar sempit */
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.title-pecahan {
+  background-color: #ffeb3b;
+  padding: 10px 15px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.example-container {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 200px;
+}
+
+/* Style untuk Visual Box 3/6 */
 .visual-box {
-  width: 100px;
+  width: 120px;
   height: 40px;
   border: 2px solid white;
   position: relative;
-  background: rgba(255, 255, 255, 0.1);
-  margin: 0 auto;
-  margin-top: 20px;
+  display: flex;
+  background: transparent;
 }
 
 .box-fill {
+  background-color: #ffeb3b; /* Warna kuning pengisi */
   height: 100%;
-  background: #ffeb3b; /* Warna kuning untuk bagian yang diisi */
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
-.box-line {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 2px;
+/* Membuat 6 kolom bagian untuk 3/6 */
+.box-grid-6 {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.grid-line {
+  width: 1px;
   height: 100%;
-  background: white;
+  background-color: white;
+  position: absolute;
+}
+
+/* Mengatur posisi 5 garis untuk membentuk 6 kolom */
+.grid-line:nth-child(2) {
+  left: 16.6%;
+}
+.grid-line:nth-child(3) {
+  left: 33.3%;
+}
+.grid-line:nth-child(4) {
+  left: 50%;
+}
+.grid-line:nth-child(5) {
+  left: 66.6%;
+}
+.grid-line:nth-child(6) {
+  left: 83.3%;
+}
+
+/* Style Pecahan (Angka) */
+.fraction-a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.numerator {
+  border-bottom: 2px solid white;
+  padding: 0 5px;
 }
 
 /* Styling Input Interaktif */
@@ -706,6 +806,17 @@ body {
 }
 
 /* Operasi Layout */
+.calc-container {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  gap: 20px; /* Jarak antar kotak */
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+}
+
 .fraction-row {
   display: flex;
   align-items: center;
