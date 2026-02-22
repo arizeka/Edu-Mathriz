@@ -203,10 +203,24 @@ function startCountdown() {
 }
 
 // --- LOGIKA QUIZ ---
+let questions = [];
 let currentQuestionIndex = 0;
-const quizQuestions = [
-  { q: "1/4 + 2/4 = ...", a: ["3/4", "1/4", "3/8", "1/2"], correct: 0 },
-  // Tambahkan 10 soal di sini secara acak
+let userAnswers = [];
+let timerInterval;
+let timeLeft = 600; // 10 menit
+
+// Data Pool (Contoh 4 tipe, silakan lengkapi hingga 40)
+const questionPool = [
+  // Tipe 1: Penjumlah sama
+  { q: "1/5 + 2/5", a: "3/5", options: ["3/5", "4/5", "2/5", "3/10"], type: 1 },
+  { q: "2/7 + 3/7", a: "5/7", options: ["5/7", "6/7", "4/7", "5/14"], type: 1 },
+  // Tipe 2: Pengurangan sama
+  { q: "4/5 - 1/5", a: "3/5", options: ["3/5", "2/5", "5/5", "3/10"], type: 2 },
+  // Tipe 3: Penjumlahan beda
+  { q: "1/2 + 1/4", a: "3/4", options: ["3/4", "2/4", "2/6", "1/4"], type: 3 },
+  // Tipe 4: Pengurangan beda
+  { q: "1/2 - 1/4", a: "1/4", options: ["1/4", "3/4", "0", "1/2"], type: 4 },
+  // Tambahkan soal lainnya di sini hingga masing-masing tipe ada 10...
 ];
 
 function quizToIdentity() {
@@ -216,24 +230,108 @@ function quizToIdentity() {
 
 function startQuiz() {
   const name = document.getElementById("student-name").value;
-  if (!name) return alert("Isi nama dulu ya!");
+  if (!name) return alert("Masukkan nama dulu ya!");
+
+  // Ambil 10 soal acak (Pastikan tiap tipe muncul)
+  questions = shuffleArray(questionPool).slice(0, 10);
+  userAnswers = new Array(10).fill(null);
 
   document.getElementById("quiz-identity").style.display = "none";
   document.getElementById("quiz-play").style.display = "block";
-  showQuestion(0);
-  startQuizTimer();
+
+  showQuestion();
+  startTimer();
 }
 
-function showQuestion(index) {
-  const qContainer = document.getElementById("question-container");
-  const q = quizQuestions[index];
-  qContainer.innerHTML = `
-        <p>Soal ${index + 1}:</p>
-        <h4>${q.q}</h4>
-        <div class="options">
-            ${q.a.map((opt, i) => `<button onclick="selectAnswer(${i})">${opt}</button>`).join("")}
-        </div>
-    `;
+function showQuestion() {
+  const q = questions[currentQuestionIndex];
+  document.getElementById("question-number").innerText =
+    `Soal ${currentQuestionIndex + 1}/10`;
+  document.getElementById("question-text").innerText = `${q.q} = ...`;
+
+  const optionsContainer = document.getElementById("options-container");
+  optionsContainer.innerHTML = "";
+
+  // Acak pilihan jawaban
+  const shuffledOptions = shuffleArray([...q.options]);
+
+  shuffledOptions.forEach((opt) => {
+    const btn = document.createElement("button");
+    btn.className = `option-btn ${userAnswers[currentQuestionIndex] === opt ? "selected" : ""}`;
+    btn.innerText = opt;
+    btn.onclick = () => selectAnswer(opt);
+    optionsContainer.appendChild(btn);
+  });
+
+  // Navigasi Button Control
+  document.getElementById("prev-q").style.visibility =
+    currentQuestionIndex === 0 ? "hidden" : "visible";
+  if (currentQuestionIndex === 9) {
+    document.getElementById("next-q").style.display = "none";
+    document.getElementById("finish-q").style.display = "block";
+  } else {
+    document.getElementById("next-q").style.display = "block";
+    document.getElementById("finish-q").style.display = "none";
+  }
+}
+
+function selectAnswer(ans) {
+  userAnswers[currentQuestionIndex] = ans;
+  showQuestion();
+}
+
+function changeQuestion(step) {
+  currentQuestionIndex += step;
+  showQuestion();
+}
+
+function startTimer() {
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    let mins = Math.floor(timeLeft / 60);
+    let secs = timeLeft % 60;
+    const timerDisplay = document.getElementById("quiz-timer");
+    timerDisplay.innerText = `${mins}:${secs < 10 ? "0" : ""}${secs}`;
+
+    if (timeLeft <= 30) {
+      document
+        .getElementById("quiz-timer-container")
+        .classList.add("timer-warning");
+    }
+
+    if (timeLeft <= 0) {
+      clearInterval(timerInterval);
+      finishQuiz();
+    }
+  }, 1000);
+}
+
+function confirmFinish() {
+  if (confirm("Apakah kamu sudah yakin dengan semua jawabanmu?")) {
+    finishQuiz();
+  }
+}
+
+function finishQuiz() {
+  clearInterval(timerInterval);
+  let correctCount = 0;
+
+  questions.forEach((q, index) => {
+    if (userAnswers[index] === q.a) correctCount++;
+  });
+
+  document.getElementById("quiz-play").style.display = "none";
+  document.getElementById("quiz-result").style.display = "block";
+
+  document.getElementById("res-name").innerText =
+    document.getElementById("student-name").value;
+  document.getElementById("final-score").innerText = correctCount * 10;
+  document.getElementById("stat-correct").innerText = correctCount;
+  document.getElementById("stat-wrong").innerText = 10 - correctCount;
+}
+
+function shuffleArray(array) {
+  return array.sort(() => Math.random() - 0.5);
 }
 
 // Update fungsi btnBack untuk menyembunyikan semuanya

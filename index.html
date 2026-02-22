@@ -204,8 +204,9 @@
           <h3>Bilangan Pecahan</h3>
           <p>
             Bilangan pecahan adalah bilangan yang menyatakan bagian dari suatu
-            keseluruhan. Jika sebuah benda utuh dibagi menjadi beberapa bagian
-            yang <b>sama besar</b>, maka setiap bagian tersebut adalah pecahan.
+            keseluruhan yang dibagi menjadi beberapa bagian sama besar.<br />Jika
+            sebuah benda utuh dibagi menjadi beberapa bagian yang
+            <b>sama besar</b>, maka setiap bagian tersebut adalah pecahan.
           </p>
         </div>
 
@@ -238,6 +239,7 @@
                 </div>
               </div>
               <p>Satu dari dua bagian yang sama besar.</p>
+              <p>Dibaca = satu per dua.</p>
             </div>
 
             <div class="example-container">
@@ -256,6 +258,7 @@
                 </div>
               </div>
               <p>Tiga dari enam bagian yang sama besar.</p>
+              <p>Dibaca = tiga per enam.</p>
             </div>
           </div>
 
@@ -305,9 +308,9 @@
                 ><span class="denominator">4</span>
               </div>
             </div>
-            <p class="desc-text">
+            <div class="step-box">
               Cukup jumlahkan pembilangnya saja, penyebutnya tetap sama.
-            </p>
+            </div>
           </div>
         </div>
 
@@ -330,9 +333,9 @@
                 ><span class="denominator">5</span>
               </div>
             </div>
-            <p class="desc-text">
+            <div class="step-box">
               Kurangkan pembilangnya, penyebutnya tidak berubah.
-            </p>
+            </div>
           </div>
         </div>
 
@@ -368,10 +371,8 @@
               </div>
             </div>
             <div class="step-box">
-              1. Samakan penyebut dengan KPK (KPK 2 dan 3 adalah 6)<br />
-              2. $\frac{3}{6} + \frac{2}{6} = \frac{5}{6}$
+              Samakan penyebut dengan KPK (KPK 2 dan 3 adalah 6).
             </div>
-            <div class="visual-row"></div>
           </div>
         </div>
 
@@ -405,8 +406,7 @@
               </div>
             </div>
             <div class="step-box">
-              Samakan penyebut ke 4:<br />
-              $\frac{3}{4} - \frac{2}{4} = \frac{1}{4}$
+              Samakan penyebut dengan KPK (KPK 4 dan 2 adalah 4).
             </div>
           </div>
         </div>
@@ -474,47 +474,93 @@
         </div>
       </div>
 
-      <div id="quiz-container" class="glass-container" style="display: none">
+      <div id="quiz-container" class="glass-container">
         <div id="quiz-guide" class="content-step">
-          <h2>Cara Mengerjakan Quiz 📝</h2>
-          <ol>
-            <li>Baca setiap soal dengan teliti sebelum memilih jawaban.</li>
-            <li>Pilihlah satu jawaban yang paling tepat (A, B, C, atau D).</li>
-            <li>
-              Gunakan tombol 'Next' untuk lanjut dan 'Back' untuk mengoreksi
-              soal sebelumnya.
-            </li>
-            <li>
-              Waktu pengerjaan adalah 10 menit, perhatikan timer di bagian atas.
-            </li>
-            <li>
-              Klik tombol 'Selesai' di soal terakhir untuk melihat nilai
-              akhirmu.
-            </li>
-          </ol>
-          <button class="btn-next" onclick="quizToIdentity()">Lanjut</button>
+          <h2 class="title-step">Cara Mengerjakan Quiz 📝</h2>
+          <div class="guide-box">
+            <ol>
+              <li>Baca setiap soal dengan teliti sebelum memilih jawaban.</li>
+              <li>
+                Pilihlah satu jawaban yang paling tepat (A, B, C, atau D).
+              </li>
+              <li>
+                Gunakan tombol 'Next' untuk lanjut dan 'Back' untuk mengoreksi.
+              </li>
+              <li>Waktu pengerjaan adalah 10 menit.</li>
+              <li>
+                Klik tombol 'Selesai' di soal terakhir untuk melihat nilai.
+              </li>
+            </ol>
+          </div>
+          <button class="btn-main" onclick="quizToIdentity()">Lanjut</button>
         </div>
 
         <div id="quiz-identity" class="content-step" style="display: none">
-          <h3>Identitas Diri</h3>
-          <input type="text" id="student-name" placeholder="Nama Lengkap" />
-          <input type="number" id="student-id" placeholder="Nomor Absen" />
-          <button class="btn-next" onclick="startQuiz()">Mulai Quiz</button>
+          <h2 class="title-step">Identitas Diri</h2>
+          <div class="input-group">
+            <input
+              type="text"
+              id="student-name"
+              placeholder="Nama Lengkap"
+              autocomplete="off"
+            />
+            <input
+              type="number"
+              id="student-id"
+              placeholder="Nomor Absen"
+              autocomplete="off"
+            />
+          </div>
+          <button class="btn-main" onclick="startQuiz()">Mulai Quiz</button>
         </div>
 
         <div id="quiz-play" class="content-step" style="display: none">
-          <div id="quiz-timer">10:00</div>
-          <div id="question-container"></div>
+          <div id="quiz-timer-container">
+            <span id="quiz-timer">10:00</span>
+          </div>
+
+          <div class="question-card">
+            <p id="question-number">Soal 1/10</p>
+            <div id="question-text" class="math-question">1/4 + 2/4 = ...</div>
+          </div>
+
+          <div id="options-container" class="options-grid"></div>
+
           <div class="nav-buttons">
-            <button id="prev-q" onclick="changeQuestion(-1)">Back</button>
-            <button id="next-q" onclick="changeQuestion(1)">Next</button>
+            <button id="prev-q" class="btn-nav" onclick="changeQuestion(-1)">
+              Kembali
+            </button>
+            <button id="next-q" class="btn-nav" onclick="changeQuestion(1)">
+              Selanjutnya
+            </button>
+            <button
+              id="finish-q"
+              class="btn-main"
+              style="display: none"
+              onclick="confirmFinish()"
+            >
+              Selesai
+            </button>
           </div>
         </div>
 
         <div id="quiz-result" class="content-step" style="display: none">
-          <h2>Hasil Quiz</h2>
-          <div id="final-score">0</div>
-          <button onclick="closeQuiz()">Kembali ke Menu</button>
+          <h2 class="title-step">Hasil Quiz</h2>
+          <div class="result-box">
+            <p id="res-name"></p>
+            <div class="score-circle">
+              <span id="final-score">0</span>
+            </div>
+            <div class="detail-stats">
+              <p class="stat-correct">
+                Benar: <span id="stat-correct">0</span>
+              </p>
+              <p class="stat-wrong">Salah: <span id="stat-wrong">0</span></p>
+            </div>
+          </div>
+          <button class="btn-main" onclick="location.reload()">
+            Main Lagi
+          </button>
         </div>
       </div>
 
